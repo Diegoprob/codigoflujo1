@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo Interactivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+ 
+        .node {
+            width: 200px;
+            padding: 10px;
+            margin: 20px;
+            background-color: lightblue;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+ 
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid black;
+        }
+ 
+        .hidden-info {
+            display: none;
+            margin-top: 5px;
+        }
+ 
+        .node:hover {
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagrama de Flujo Interactivo</h1>
+    <!-- Diagrama de flujo básico -->
+    <div class="node" onclick="showInfo('info1')">Inicio</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info2')">Asignación de ACE a Funcionario</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info3')">Inspección Física</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info4')">Realizar Acta de Inspección Física</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info5')">¿Incidencia?</div>
+    <div class="arrow"></div>
+ 
+    <!-- Respuesta a ¿Incidencia? -->
+    <div class="node" onclick="showInfo('info6')">Acta de Inmovilización - Incautación (MAE)</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info7')">¿Es Incautación?</div>
+    <div class="arrow"></div>
+ 
+    <div class="node" onclick="showInfo('info8')">Realizar Informe de Incautación</div>
+    <div class="arrow"></div>
+ 
+    <!-- Más nodos según tu flujo -->
+ 
+    <!-- Sección de información dinámica -->
+    <div id="info-section">
+        <p id="info1" class="hidden-info">Este es el inicio del proceso.</p>
+        <p id="info2" class="hidden-info">Se asigna ACE a un funcionario.</p>
+        <p id="info3" class="hidden-info">Realización de la inspección física del contenedor.</p>
+        <p id="info4" class="hidden-info">El funcionario debe realizar el acta de inspección física.</p>
+        <p id="info5" class="hidden-info">Si hay incidencia, proceder con los siguientes pasos.</p>
+        <p id="info6" class="hidden-info">Se realiza el acta de inmovilización o incautación según corresponda.</p>
+        <p id="info7" class="hidden-info">¿Es incautación? Si es así, seguir con el informe de incautación.</p>
+        <p id="info8" class="hidden-info">El funcionario debe realizar el informe de incautación.</p>
+    </div>
+ 
+    <script>
+        // Función para mostrar información de cada paso
+        function showInfo(id) {
+            // Ocultar todas las descripciones
+document.querySelectorAll('.hidden-info').forEach(info => info.style.display = 'none');
+            // Mostrar la información correspondiente
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
